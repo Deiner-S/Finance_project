@@ -1,9 +1,8 @@
-import os
-import Data_colector as dc
+from DataColector import DataColector
 import pandas as pd
 class app():
-    
-        Action_df = pd.DataFrame(dc.grup_action_data())
+        data_colector = DataColector()
+        Action_df = pd.DataFrame(data_colector.grup_action_data())
         Action_df.to_csv("Actions10y.CSV")
    
 

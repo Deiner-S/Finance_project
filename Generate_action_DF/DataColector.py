@@ -1,29 +1,41 @@
 import requests
+import numpy as np
+import logging
+import time
 import pandas as pd
 import yfinance as yf
 from bs4 import BeautifulSoup
 
-class Data_colector():
+class DataColector():
 
+    def __init__(self):
+        self._url = "https://www.fundamentus.com.br/resultado.php"
     
-    _url = "https://www.fundamentus.com.br/resultado.php"
+    
         
 
     def grup_action_data(self):
+        self._logging()
         grup_data = pd.DataFrame()
         tickers_list = self._get_tickers()
         for ticker in tickers_list:
-            new_data = self._try_search_action(ticker)
-            grup_data = pd.concat([grup_data,new_data],ignore_index=True)           
+            new_data = self._search_action(ticker)
+            if new_data is not None:
+                grup_data = pd.concat([grup_data,new_data],ignore_index=True)  
+            delay = np.random.uniform(1,3)
+            time.sleep(delay)         
         return grup_data
     
-    def _try_search_action(self,ticker):
-        try:
-            return self._search_action(ticker)
-        except Exception as e:
-            with open("log.txt", "a") as log:
-                log.write(e)
-            return None
+    def _logging(self):
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler('log.txt', mode='a', encoding='utf-8'),
+                logging.StreamHandler()
+                ]
+        )
+
 
     def _search_action(self, ticker):
         action = yf.Ticker(f"{ticker}.SA")
