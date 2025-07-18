@@ -9,19 +9,29 @@ class Data_colector():
     _url = "https://www.fundamentus.com.br/resultado.php"
         
 
-    def create_action_dataFrame(self,tickers):
+    def grup_action_data(self):
         grup_data = pd.DataFrame()
-        for ticker in tickers:
-            action = yf.Ticker(f"{ticker}.SA")
-            data = action.history(period="10y")
-            data['Ticker'] = ticker
-            grup_data = pd.concat([grup_data,data],ignore_index=True)
-
-            
+        tickers_list = self._get_tickers()
+        for ticker in tickers_list:
+            new_data = self._try_search_action(ticker)
+            grup_data = pd.concat([grup_data,new_data],ignore_index=True)           
         return grup_data
+    
+    def _try_search_action(self,ticker):
+        try:
+            return self._search_action(ticker)
+        except Exception as e:
+            with open("log.txt", "a") as log:
+                log.write(e)
+            return None
 
+    def _search_action(self, ticker):
+        action = yf.Ticker(f"{ticker}.SA")
+        data = action.history(period="10y")
+        data['Ticker'] = ticker
+        return data
 
-    def get_tickers(self):    
+    def _get_tickers(self):    
         resp = requests.get(self._url, headers={'User-Agent':'Mozilla/5.0'})
         soup = BeautifulSoup(resp.text, 'html.parser')
         table = soup.find('table')
