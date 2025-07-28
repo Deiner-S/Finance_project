@@ -26,7 +26,7 @@ class Scraping():
 
     def _extract_markers(self,tiker):
         url = f"www.infomoney.com.br/{tiker}"
-        resp = requests.get(url,headers=self.headers)
+        resp = requests.get(url,headers=self._headers)
         soap = BeautifulSoup(resp.text,"html.parser" )
         markers = soap.find("table",class_="tables")
 
