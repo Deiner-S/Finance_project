@@ -5,7 +5,7 @@ class App:
 
     def run(self):
         self.screper.run()
-
+        
 def main():
     app = App()
     app.run()

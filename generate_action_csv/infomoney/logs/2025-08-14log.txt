@@ -1,0 +1,16 @@
+
+18:26:44 - JBSS32 - [Extraction] ERROR:list index out of range
+18:26:46 - INBR32 - [Extraction] ERROR:list index out of range
+18:27:41 - AZZA3 - [Extraction] ERROR:list index out of range
+18:28:40 - MOTV3 - [Extraction] ERROR:list index out of range
+18:29:22 - ISAE4 - [Extraction] ERROR:list index out of range
+18:31:53 - LJQQ3 - [Extraction] ERROR:list index out of range
+18:32:47 - VTRU3 - [Extraction] ERROR:list index out of range
+18:33:17 - WIZC3 - [Extraction] ERROR:list index out of range
+18:34:04 - GOLL54 - [Extraction] ERROR:list index out of range
+18:34:45 - ZAMP3 - [Extraction] ERROR:list index out of range
+18:35:55 - AMOB3 - [Extraction] ERROR:list index out of range
+18:37:36 - CSUD3 - [Extraction] ERROR:list index out of range
+18:39:12 - VSTE3 - [Extraction] ERROR:list index out of range
+18:41:04 - EPAR3 - [Extraction] ERROR:list index out of range
+18:41:46 - ISAE3 - [Extraction] ERROR:list index out of range

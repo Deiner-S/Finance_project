@@ -1,0 +1,2 @@
+teste@bot.com,50,WIN,3,DEMO
+user@bot.com,100,CALL,2,PRINCIPAL
