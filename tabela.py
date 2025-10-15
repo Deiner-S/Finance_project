@@ -1,14 +1,14 @@
 import tkinter as tk
-from tkinter import ttk
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 import time
-class bot_log():
+class BotLog():
     def __init__(self,frame):
         self.frame = frame
         self.tree = self.generate_table()
-
     def generate_table(self):
         # --- Frame para a tabela ---
-        self.frame = tk.Frame(self.frame, bd=2, relief="groove")
+        self.frame = ttk.Frame(self.frame, relief="groove")
         self.frame.pack(padx=10, pady=10, fill="both", expand=True)
 
         # --- Criando a tabela ---
