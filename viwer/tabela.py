@@ -6,6 +6,9 @@ class BotLog():
     def __init__(self,frame):
         self.frame = frame
         self.tree = self.generate_table()
+        self.data_list = list()
+        self.add_bot_log()
+        
     def generate_table(self):
         # --- Frame para a tabela ---
         self.frame = ttk.Frame(self.frame, relief="groove")
@@ -34,19 +37,21 @@ class BotLog():
 
     # --- Função para adicionar dados à tabela ---
     def add_bot_log(self):
-        print("start thread")
-        while True:
-            with open("log.txt", "r") as f:
-                linhas = f.readlines()  # lê todas as linhas
-                ultima = linhas[-1].strip()
-                data = ultima.split(",")
-            self.tree.insert("", "end", values=(
-                data[0],
-                data[1],
-                data[2],
-                data[3],
-                data[4]
-            ))
-            time.sleep(15)
+          
+        with open("log.txt", "r") as f:
+            linhas = f.readlines()  # lê todas as linhas
+            ultima = linhas[-1].strip()
+            data = ultima.split(",")
+            if not self.data_list or data !=  self.data_list[len(self.data_list)-1]:
+                self.data_list.append(data)
+                self.tree.insert("", "end", values=(
+                    data[0],
+                    data[1],
+                    data[2],
+                    data[3],
+                    data[4]
+                ))
+        self.frame.after(1000, self.add_bot_log)
+    
 
     

@@ -1,2 +1,7 @@
-teste@bot.com,50,WIN,3,DEMO
+teste@bot.com,70,WIN,5,DEMO
 user@bot.com,100,CALL,2,PRINCIPAL
+teste@bot.com,50,WIN,3,DEMO
+teste@bot.com,70,WIN,5,DEMO
+teste@bot.com,70,WIN,5,DEMO
+teste@bot.com,70,CALL,5,PRINCIPAL
+teste@bot.com,70,WIN,5,DEMO

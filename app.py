@@ -1,11 +1,11 @@
 import tkinter as tk
 import ttkbootstrap as ttk
 from ttkbootstrap.constants import *
-from form import BotForm
-from tabela import BotLog
+from viwer.form import BotForm
+from viwer.tabela import BotLog
 from collections import deque
-from controler import Controler
-import threading
+from viwer.controler import Controler
+
 
 
 root = ttk.Window(title="Bynary BOT", themename="darkly")
@@ -27,8 +27,7 @@ controle = Controler(bot_list,frame_controler)
 frame_table = ttk.LabelFrame(root,relief="groove",text="Log de Operações")
 frame_table.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
 log_table = BotLog(frame_table)
-monitor_table_thread = threading.Thread(target=log_table.add_bot_log)
-monitor_table_thread.start()
+
 # Permite expansão
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)

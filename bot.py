@@ -4,7 +4,7 @@ class Bot(threading.Thread):
     def __init__(self, group = None, target = None, name = None, args = ..., 
                  kwargs = None, *, daemon = None,email,password,active,operation_value,account_type):
         super().__init__(group, target, name, args, kwargs, daemon=daemon)
-        self.name = name
+        self.name = "BB-Strategy"
         self.email = email
         self.password = password
         self.active = active
